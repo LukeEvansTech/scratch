@@ -98,17 +98,33 @@ foreach ($group in $applicationGroups) {
     $results += $groupStats
 }
 
-# Display results in a nice table format
+# Display and Export: APPLICATION GROUP SUMMARY
 Write-Host "`n========== APPLICATION GROUP SUMMARY ==========" -ForegroundColor Cyan
 $results | Format-Table -AutoSize -Property GroupID, GroupName, TotalApplications
 
+$groupSummary = $results | Select-Object GroupID, GroupName, TotalApplications
+$groupSummary | Export-Csv -Path "DefendPoint_GroupSummary.csv" -NoTypeInformation
+Write-Host "Exported to DefendPoint_GroupSummary.csv" -ForegroundColor Green
+
+# Display and Export: TYPE BREAKDOWN BY GROUP
 Write-Host "`n========== TYPE BREAKDOWN BY GROUP ==========" -ForegroundColor Cyan
 $results | Format-Table -AutoSize -Property GroupName, Type_exe, Type_msc, Type_ps1, Type_bat, Type_wsh, Type_msi, Type_dll, Type_reg
 
+$typeBreakdown = $results | Select-Object GroupName, Type_exe, Type_msc, Type_ps1, Type_bat, Type_wsh, Type_msi, Type_dll, Type_reg, Type_other
+$typeBreakdown | Export-Csv -Path "DefendPoint_TypeBreakdown.csv" -NoTypeInformation
+Write-Host "Exported to DefendPoint_TypeBreakdown.csv" -ForegroundColor Green
+
+# Display and Export: KEY ATTRIBUTES BY GROUP
 Write-Host "`n========== KEY ATTRIBUTES BY GROUP ==========" -ForegroundColor Cyan
 $results | Format-Table -AutoSize -Property GroupName, ChildrenInheritToken_True, OpenDLGDropRights_True, CheckFileName_True, CheckProductName_True
 
+$keyAttributes = $results | Select-Object GroupName, ChildrenInheritToken_True, ChildrenInheritToken_False, OpenDLGDropRights_True, OpenDLGDropRights_False, CheckFileName_True, CheckProductName_True, UseSourceFileName_True
+$keyAttributes | Export-Csv -Path "DefendPoint_KeyAttributes.csv" -NoTypeInformation
+Write-Host "Exported to DefendPoint_KeyAttributes.csv" -ForegroundColor Green
+
+# Display and Export: DETAILED GROUP ANALYSIS
 Write-Host "`n========== DETAILED GROUP ANALYSIS ==========" -ForegroundColor Cyan
+$detailedAnalysis = @()
 foreach ($result in $results) {
     Write-Host "`nGroup: $($result.GroupName)" -ForegroundColor Yellow
     Write-Host "  ID: $($result.GroupID)"
@@ -117,20 +133,51 @@ foreach ($result in $results) {
     Write-Host "  ChildrenInheritToken=True: $($result.ChildrenInheritToken_True)"
     Write-Host "  OpenDLGDropRights=True: $($result.OpenDLGDropRights_True)"
     Write-Host "  Unique Attributes: $($result.UniqueAttributes)"
+    
+    $detailedAnalysis += [PSCustomObject]@{
+        GroupName = $result.GroupName
+        GroupID = $result.GroupID
+        TotalApplications = $result.TotalApplications
+        EXE_Count = $result.Type_exe
+        ChildrenInheritToken_True = $result.ChildrenInheritToken_True
+        OpenDLGDropRights_True = $result.OpenDLGDropRights_True
+        UniqueAttributes = $result.UniqueAttributes
+    }
 }
+$detailedAnalysis | Export-Csv -Path "DefendPoint_DetailedAnalysis.csv" -NoTypeInformation
+Write-Host "`nExported to DefendPoint_DetailedAnalysis.csv" -ForegroundColor Green
 
-# Export to CSV for further analysis
-$results | Export-Csv -Path "DefendPoint_Analysis.csv" -NoTypeInformation
-Write-Host "`n========== Results exported to DefendPoint_Analysis.csv ==========" -ForegroundColor Green
+# Export COMPLETE data (all fields)
+$results | Export-Csv -Path "DefendPoint_Complete.csv" -NoTypeInformation
+Write-Host "Exported to DefendPoint_Complete.csv (all data)" -ForegroundColor Green
 
-# Create a summary object for all groups combined
+# Create and Export: OVERALL POLICY SUMMARY
 $totalSummary = [PSCustomObject]@{
     TotalGroups = $results.Count
     TotalApplications = ($results | Measure-Object -Property TotalApplications -Sum).Sum
     TotalEXEs = ($results | Measure-Object -Property Type_exe -Sum).Sum
     TotalWithChildInherit = ($results | Measure-Object -Property ChildrenInheritToken_True -Sum).Sum
     TotalWithDropRights = ($results | Measure-Object -Property OpenDLGDropRights_True -Sum).Sum
+    TotalMSCs = ($results | Measure-Object -Property Type_msc -Sum).Sum
+    TotalPS1s = ($results | Measure-Object -Property Type_ps1 -Sum).Sum
+    TotalBATs = ($results | Measure-Object -Property Type_bat -Sum).Sum
+    TotalWSHs = ($results | Measure-Object -Property Type_wsh -Sum).Sum
+    TotalMSIs = ($results | Measure-Object -Property Type_msi -Sum).Sum
 }
 
 Write-Host "`n========== OVERALL POLICY SUMMARY ==========" -ForegroundColor Magenta
 $totalSummary | Format-List
+
+# Export overall summary
+$totalSummary | Export-Csv -Path "DefendPoint_OverallSummary.csv" -NoTypeInformation
+Write-Host "Exported to DefendPoint_OverallSummary.csv" -ForegroundColor Green
+
+# Summary of all exports
+Write-Host "`n========== ALL EXPORTS COMPLETED ==========" -ForegroundColor Cyan
+Write-Host "The following CSV files have been created:" -ForegroundColor Yellow
+Write-Host "  1. DefendPoint_GroupSummary.csv     - Basic group information"
+Write-Host "  2. DefendPoint_TypeBreakdown.csv    - Application types per group"
+Write-Host "  3. DefendPoint_KeyAttributes.csv    - Security attributes per group"
+Write-Host "  4. DefendPoint_DetailedAnalysis.csv - Focused analysis per group"
+Write-Host "  5. DefendPoint_Complete.csv         - Complete data (all fields)"
+Write-Host "  6. DefendPoint_OverallSummary.csv   - Policy-wide statistics"
