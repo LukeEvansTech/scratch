@@ -124,4 +124,188 @@ Write-Host "`n========== Created output directory: $outputDir ==========" -Foreg
 
 # Get all application groups
 $applicationGroups = $xml.SelectNodes("//ApplicationGroup")
-Write-Host "`n=========
+Write-Host "`n========== Starting analysis of $($applicationGroups.Count) Application Groups ==========" -ForegroundColor Cyan
+
+# Master summary for all groups
+$masterSummary = @()
+
+# Process each group
+foreach ($group in $applicationGroups) {
+    Write-Host "`n========== Analyzing Group: $($group.Name) ==========" -ForegroundColor Cyan
+    
+    # Create safe filename for this group
+    $safeGroupName = Get-SafeFileName -fileName $group.Name
+    
+    # Initialize collections for this group
+    $groupPathAnalysis = @()
+    
+    # Get all applications in this group
+    $applications = $group.SelectNodes("Application")
+    
+    if ($applications.Count -eq 0) {
+        Write-Host "  No applications found in this group. Skipping..." -ForegroundColor Yellow
+        continue
+    }
+    
+    Write-Host "  Found $($applications.Count) applications" -ForegroundColor Gray
+    
+    foreach ($app in $applications) {
+        $appPaths = @()
+        
+        # Extract paths from various attributes
+        $searchAttributes = @('Description', 'FileName', 'ProductName', 'FilePath', 'CommandLine')
+        
+        foreach ($attrName in $searchAttributes) {
+            $attrValue = $app.GetAttribute($attrName)
+            if ($attrValue) {
+                $foundPaths = Extract-Paths -text $attrValue
+                foreach ($path in $foundPaths) {
+                    $pathAnalysis = Analyze-Path -path $path
+                    $pathAnalysis | Add-Member -NotePropertyName "GroupName" -NotePropertyValue $group.Name
+                    $pathAnalysis | Add-Member -NotePropertyName "GroupID" -NotePropertyValue $group.ID
+                    $pathAnalysis | Add-Member -NotePropertyName "ApplicationID" -NotePropertyValue $app.ID
+                    $pathAnalysis | Add-Member -NotePropertyName "ApplicationDesc" -NotePropertyValue $app.Description
+                    $pathAnalysis | Add-Member -NotePropertyName "ApplicationType" -NotePropertyValue $app.Type
+                    $pathAnalysis | Add-Member -NotePropertyName "SourceAttribute" -NotePropertyValue $attrName
+                    
+                    $groupPathAnalysis += $pathAnalysis
+                    $appPaths += $path
+                }
+            }
+        }
+        
+        # Also check for paths in the Description field that might not match patterns
+        if ($app.Description -and $app.Description.Contains('\')) {
+            $potentialPath = $app.Description
+            if ($potentialPath -notin $appPaths) {
+                $pathAnalysis = Analyze-Path -path $potentialPath
+                $pathAnalysis | Add-Member -NotePropertyName "GroupName" -NotePropertyValue $group.Name
+                $pathAnalysis | Add-Member -NotePropertyName "GroupID" -NotePropertyValue $group.ID
+                $pathAnalysis | Add-Member -NotePropertyName "ApplicationID" -NotePropertyValue $app.ID
+                $pathAnalysis | Add-Member -NotePropertyName "ApplicationDesc" -NotePropertyValue $app.Description
+                $pathAnalysis | Add-Member -NotePropertyName "ApplicationType" -NotePropertyValue $app.Type
+                $pathAnalysis | Add-Member -NotePropertyName "SourceAttribute" -NotePropertyValue "Description"
+                
+                $groupPathAnalysis += $pathAnalysis
+            }
+        }
+    }
+    
+    # Skip if no paths found
+    if ($groupPathAnalysis.Count -eq 0) {
+        Write-Host "  No paths found in this group. Skipping export..." -ForegroundColor Yellow
+        $masterSummary += [PSCustomObject]@{
+            GroupName = $group.Name
+            GroupID = $group.ID
+            TotalApplications = $applications.Count
+            TotalPaths = 0
+            UniqueServers = 0
+            UniqueDrives = 0
+            NetworkPaths = 0
+            LocalPaths = 0
+            EnvVarPaths = 0
+            WildcardPaths = 0
+        }
+        continue
+    }
+    
+    Write-Host "  Found $($groupPathAnalysis.Count) paths" -ForegroundColor Gray
+    
+    # Create group summary
+    $groupPathTypes = $groupPathAnalysis | Group-Object PathType
+    $networkPaths = $groupPathAnalysis | Where-Object { $_.PathType -eq "UNC/Network" }
+    $localPaths = $groupPathAnalysis | Where-Object { $_.PathType -eq "Local" }
+    
+    $groupSummaryItem = [PSCustomObject]@{
+        GroupName = $group.Name
+        GroupID = $group.ID
+        TotalApplications = $applications.Count
+        TotalPaths = $groupPathAnalysis.Count
+        UniqueServers = ($networkPaths | Select-Object -ExpandProperty DriveOrServer -Unique).Count
+        UniqueDrives = ($localPaths | Select-Object -ExpandProperty DriveOrServer -Unique).Count
+        NetworkPaths = ($groupPathTypes | Where-Object { $_.Name -eq "UNC/Network" }).Count
+        LocalPaths = ($groupPathTypes | Where-Object { $_.Name -eq "Local" }).Count
+        EnvVarPaths = ($groupPathTypes | Where-Object { $_.Name -eq "Environment Variable" }).Count
+        WildcardPaths = ($groupPathAnalysis | Where-Object { $_.ContainsWildcard }).Count
+    }
+    $masterSummary += $groupSummaryItem
+    
+    # Export detailed path analysis for this group
+    $detailFile = Join-Path $outputDir "${safeGroupName}_PathDetails.csv"
+    $groupPathAnalysis | Select-Object GroupName, ApplicationDesc, ApplicationType, OriginalPath, PathType, DriveOrServer, ShareName, Directory, FileName, FileExtension, Depth, ContainsWildcard, UsesEnvVariable, EnvVariables, ExpandedPath, SourceAttribute | 
+        Export-Csv -Path $detailFile -NoTypeInformation
+    Write-Host "  Exported detailed analysis to: $detailFile" -ForegroundColor Green
+    
+    # Export network paths if any exist
+    if ($networkPaths.Count -gt 0) {
+        $networkFile = Join-Path $outputDir "${safeGroupName}_NetworkPaths.csv"
+        $networkPaths | Select-Object ApplicationDesc, OriginalPath, DriveOrServer, ShareName, ContainsWildcard | 
+            Export-Csv -Path $networkFile -NoTypeInformation
+        Write-Host "  Exported $($networkPaths.Count) network paths" -ForegroundColor Green
+    }
+    
+    # Export wildcard paths if any exist
+    $wildcardPaths = $groupPathAnalysis | Where-Object { $_.ContainsWildcard }
+    if ($wildcardPaths.Count -gt 0) {
+        $wildcardFile = Join-Path $outputDir "${safeGroupName}_WildcardPaths.csv"
+        $wildcardPaths | Select-Object ApplicationDesc, OriginalPath, PathType, SourceAttribute | 
+            Export-Csv -Path $wildcardFile -NoTypeInformation
+        Write-Host "  Exported $($wildcardPaths.Count) wildcard paths" -ForegroundColor Yellow
+    }
+    
+    # Create per-group summary
+    $summaryFile = Join-Path $outputDir "${safeGroupName}_Summary.csv"
+    @($groupSummaryItem) | Export-Csv -Path $summaryFile -NoTypeInformation
+    Write-Host "  Exported group summary" -ForegroundColor Green
+    
+    # Create server inventory for this group if network paths exist
+    if ($networkPaths.Count -gt 0) {
+        $uniqueShares = $networkPaths | Select-Object DriveOrServer, ShareName -Unique
+        $serverInventory = @()
+        foreach ($share in $uniqueShares) {
+            $shareCount = ($networkPaths | Where-Object { $_.DriveOrServer -eq $share.DriveOrServer -and $_.ShareName -eq $share.ShareName }).Count
+            $serverInventory += [PSCustomObject]@{
+                Server = $share.DriveOrServer
+                Share = $share.ShareName
+                FullPath = "\\$($share.DriveOrServer)\$($share.ShareName)"
+                ReferenceCount = $shareCount
+            }
+        }
+        $serverFile = Join-Path $outputDir "${safeGroupName}_ServerInventory.csv"
+        $serverInventory | Sort-Object ReferenceCount -Descending | Export-Csv -Path $serverFile -NoTypeInformation
+        Write-Host "  Exported server inventory" -ForegroundColor Green
+    }
+}
+
+# Export master summary of all groups
+Write-Host "`n========== Creating Master Summary Files ==========" -ForegroundColor Cyan
+$masterSummaryFile = Join-Path $outputDir "MASTER_AllGroups_Summary.csv"
+$masterSummary | Export-Csv -Path $masterSummaryFile -NoTypeInformation
+Write-Host "Exported master summary to: $masterSummaryFile" -ForegroundColor Green
+
+# Create overall statistics
+$overallStats = [PSCustomObject]@{
+    TotalGroups = $masterSummary.Count
+    GroupsWithPaths = ($masterSummary | Where-Object { $_.TotalPaths -gt 0 }).Count
+    TotalApplications = ($masterSummary | Measure-Object -Property TotalApplications -Sum).Sum
+    TotalPaths = ($masterSummary | Measure-Object -Property TotalPaths -Sum).Sum
+    TotalNetworkPaths = ($masterSummary | Measure-Object -Property NetworkPaths -Sum).Sum
+    TotalLocalPaths = ($masterSummary | Measure-Object -Property LocalPaths -Sum).Sum
+    TotalEnvVarPaths = ($masterSummary | Measure-Object -Property EnvVarPaths -Sum).Sum
+    TotalWildcardPaths = ($masterSummary | Measure-Object -Property WildcardPaths -Sum).Sum
+    TotalUniqueServers = ($masterSummary | Measure-Object -Property UniqueServers -Sum).Sum
+}
+
+$overallStatsFile = Join-Path $outputDir "MASTER_OverallStatistics.csv"
+@($overallStats) | Export-Csv -Path $overallStatsFile -NoTypeInformation
+Write-Host "Exported overall statistics to: $overallStatsFile" -ForegroundColor Green
+
+# Display final summary
+Write-Host "`n========== ANALYSIS COMPLETE ==========" -ForegroundColor Cyan
+Write-Host "Processed $($applicationGroups.Count) application groups" -ForegroundColor Green
+Write-Host "Groups with paths: $($overallStats.GroupsWithPaths)" -ForegroundColor Green
+Write-Host "Total paths analyzed: $($overallStats.TotalPaths)" -ForegroundColor Green
+Write-Host "Network paths: $($overallStats.TotalNetworkPaths)" -ForegroundColor Green
+Write-Host "Local paths: $($overallStats.TotalLocalPaths)" -ForegroundColor Green
+Write-Host "Wildcard paths: $($overallStats.TotalWildcardPaths)" -ForegroundColor Yellow
+Write-Host "`nAll results saved to: $outputDir" -ForegroundColor Cyan
