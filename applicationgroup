@@ -1,0 +1,127 @@
+# Load the XML file
+[xml]$xml = Get-Content -Path "YourPolicyFile.xml"  # Replace with your actual file path
+
+# Function to extract paths from text
+function Extract-Paths {
+    param([string]$text)
+    
+    $paths = @()
+    
+    # Pattern for UNC paths
+    $uncPattern = '\\\\[^\\]+\\[^\s"<>|*?]+'
+    $paths += [regex]::Matches($text, $uncPattern) | ForEach-Object { $_.Value }
+    
+    # Pattern for local paths with drive letters
+    $localPattern = '[A-Z]:\\[^\s"<>|*?]+'
+    $paths += [regex]::Matches($text, $localPattern) | ForEach-Object { $_.Value }
+    
+    # Pattern for environment variable paths
+    $envPattern = '%[^%]+%\\[^\s"<>|*?]*'
+    $paths += [regex]::Matches($text, $envPattern) | ForEach-Object { $_.Value }
+    
+    return $paths | Select-Object -Unique
+}
+
+# Function to analyze a path
+function Analyze-Path {
+    param([string]$path)
+    
+    $analysis = [PSCustomObject]@{
+        OriginalPath = $path
+        PathType = ""
+        DriveOrServer = ""
+        ShareName = ""
+        Directory = ""
+        FileName = ""
+        FileExtension = ""
+        Depth = 0
+        ExpandedPath = ""
+        ContainsWildcard = $false
+        UsesEnvVariable = $false
+        EnvVariables = @()
+    }
+    
+    # Determine path type
+    if ($path -match '^\\\\') {
+        $analysis.PathType = "UNC/Network"
+        if ($path -match '^\\\\([^\\]+)\\([^\\]+)(.*)') {
+            $analysis.DriveOrServer = $matches[1]
+            $analysis.ShareName = $matches[2]
+            $remainingPath = $matches[3]
+            if ($remainingPath) {
+                $analysis.Directory = Split-Path $remainingPath -Parent
+                $analysis.FileName = Split-Path $remainingPath -Leaf
+            }
+        }
+    }
+    elseif ($path -match '^[A-Z]:') {
+        $analysis.PathType = "Local"
+        $analysis.DriveOrServer = $path.Substring(0, 2)
+        $remainingPath = $path.Substring(2)
+        if ($remainingPath.Length -gt 1) {
+            $analysis.Directory = Split-Path $path -Parent
+            $analysis.FileName = Split-Path $path -Leaf
+        }
+    }
+    elseif ($path -match '%[^%]+%') {
+        $analysis.PathType = "Environment Variable"
+        $analysis.UsesEnvVariable = $true
+        $analysis.EnvVariables = [regex]::Matches($path, '%([^%]+)%') | ForEach-Object { $_.Groups[1].Value }
+        
+        # Try to expand environment variables
+        $expandedPath = $path
+        foreach ($envVar in $analysis.EnvVariables) {
+            $envValue = [Environment]::GetEnvironmentVariable($envVar)
+            if ($envValue) {
+                $expandedPath = $expandedPath -replace "%$envVar%", $envValue
+            }
+        }
+        $analysis.ExpandedPath = $expandedPath
+    }
+    else {
+        $analysis.PathType = "Relative/Other"
+    }
+    
+    # Check for wildcards
+    if ($path -match '\*|\?') {
+        $analysis.ContainsWildcard = $true
+    }
+    
+    # Get file extension if present
+    if ($analysis.FileName -and $analysis.FileName.Contains('.')) {
+        $analysis.FileExtension = [System.IO.Path]::GetExtension($analysis.FileName)
+    }
+    
+    # Calculate path depth
+    $analysis.Depth = ($path -split '\\').Count - 1
+    
+    return $analysis
+}
+
+# Function to sanitize filename
+function Get-SafeFileName {
+    param([string]$fileName)
+    # Remove invalid characters for filenames
+    $invalidChars = [System.IO.Path]::GetInvalidFileNameChars()
+    $safeName = $fileName
+    foreach ($char in $invalidChars) {
+        $safeName = $safeName -replace [regex]::Escape($char), "_"
+    }
+    # Also replace other problematic characters
+    $safeName = $safeName -replace '[:\*\?"<>\|/\\]', '_'
+    $safeName = $safeName -replace '\s+', '_'  # Replace spaces with underscore
+    $safeName = $safeName -replace '_{2,}', '_'  # Replace multiple underscores with single
+    return $safeName
+}
+
+# Get timestamp for file naming
+$timestamp = Get-Date -Format "yyyyMMdd_HHmmss"
+
+# Create output directory
+$outputDir = "DefendPoint_PathAnalysis_$timestamp"
+New-Item -ItemType Directory -Path $outputDir -Force | Out-Null
+Write-Host "`n========== Created output directory: $outputDir ==========" -ForegroundColor Green
+
+# Get all application groups
+$applicationGroups = $xml.SelectNodes("//ApplicationGroup")
+Write-Host "`n=========
