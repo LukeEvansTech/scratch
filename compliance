@@ -1,0 +1,210 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0" version="28.2.5">
+  <diagram name="Microsoft Security Compliance Stack" id="microsoft-security-compliance">
+    <mxGraphModel dx="2439" dy="1405" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="data-sources-container" value="Security Data Sources" style="swimlane;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#424242;fontStyle=1;fontSize=14;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="1" vertex="1">
+          <mxGeometry x="40" y="80" width="320" height="870" as="geometry" />
+        </mxCell>
+        <mxCell id="endpoints" value="Windows/Mac/Linux Endpoints" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=11;fontStyle=1;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="data-sources-container" vertex="1">
+          <mxGeometry x="60" y="50" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Kw4I0v1wzE19PpY0VDc--4" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: nowrap; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;Endpoint Telemetry&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;fontSize=12;" edge="1" parent="data-sources-container" source="mde">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mde" value="Defender for Endpoint" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#E4002B;fontSize=11;fontStyle=1;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="data-sources-container" vertex="1">
+          <mxGeometry x="60" y="130" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="servers" value="Servers (Azure/On-Prem/Multi-Cloud)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=11;fontStyle=1;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="data-sources-container" vertex="1">
+          <mxGeometry x="60" y="210" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Kw4I0v1wzE19PpY0VDc--8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" edge="1" parent="data-sources-container" source="mds">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Kw4I0v1wzE19PpY0VDc--10" value="&lt;span&gt;Server Telemetry&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;fontSize=12;" vertex="1" connectable="0" parent="Kw4I0v1wzE19PpY0VDc--8">
+          <mxGeometry x="0.0143" y="-2" relative="1" as="geometry">
+            <mxPoint y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mds" value="Defender for Servers" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#E4002B;fontSize=11;fontStyle=1;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="data-sources-container" vertex="1">
+          <mxGeometry x="60" y="290" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Kw4I0v1wzE19PpY0VDc--11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" edge="1" parent="data-sources-container" source="arc">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="395" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Kw4I0v1wzE19PpY0VDc--12" value="&lt;span&gt;Hybrid/Multi-Cloud&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;fontSize=12;" vertex="1" connectable="0" parent="Kw4I0v1wzE19PpY0VDc--11">
+          <mxGeometry x="-0.1286" relative="1" as="geometry">
+            <mxPoint x="9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arc" value="Azure Arc" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=11;fontStyle=1;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="data-sources-container" vertex="1">
+          <mxGeometry x="60" y="370" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Kw4I0v1wzE19PpY0VDc--18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" edge="1" parent="data-sources-container" source="mdi">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="465" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Kw4I0v1wzE19PpY0VDc--19" value="&lt;span&gt;Identity Signals&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;fontSize=12;" vertex="1" connectable="0" parent="Kw4I0v1wzE19PpY0VDc--18">
+          <mxGeometry x="-0.2286" y="1" relative="1" as="geometry">
+            <mxPoint x="16" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mdi" value="Defender for Identity" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#E4002B;fontSize=11;fontStyle=1;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="data-sources-container" vertex="1">
+          <mxGeometry x="60" y="440" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Kw4I0v1wzE19PpY0VDc--20" value="Office Apps Signals" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;fontSize=12;" edge="1" parent="data-sources-container" source="mdo">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="535" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mdo" value="Defender for Office 365" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#E4002B;fontSize=11;fontStyle=1;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="data-sources-container" vertex="1">
+          <mxGeometry x="60" y="510" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Kw4I0v1wzE19PpY0VDc--22" value="Resource Protection&amp;nbsp;&lt;div&gt;Signals&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;fontSize=12;" edge="1" parent="data-sources-container" source="workloads">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="610" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="workloads" value="Workload Protections&lt;br&gt;&lt;font style=&quot;font-size: 9px&quot;&gt;(Continers, Storage, SQL, Key Vault, App Service)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#E4002B;fontSize=11;fontStyle=1;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="data-sources-container" vertex="1">
+          <mxGeometry x="60" y="580" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Kw4I0v1wzE19PpY0VDc--24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" edge="1" parent="data-sources-container" source="policy">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="685" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Kw4I0v1wzE19PpY0VDc--25" value="Policy Signals" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;fontSize=12;" vertex="1" connectable="0" parent="Kw4I0v1wzE19PpY0VDc--24">
+          <mxGeometry x="0.5857" y="-1" relative="1" as="geometry">
+            <mxPoint x="-41" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="policy" value="Azure Policy" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=11;fontStyle=1;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="data-sources-container" vertex="1">
+          <mxGeometry x="60" y="660" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Kw4I0v1wzE19PpY0VDc--26" value="Identity Signals" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;fontSize=12;" edge="1" parent="data-sources-container" source="entraid">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="755" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="entraid" value="Entra ID" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=11;fontStyle=1;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="data-sources-container" vertex="1">
+          <mxGeometry x="60" y="730" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Kw4I0v1wzE19PpY0VDc--31" value="Zscaler signals" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;fontSize=12;" edge="1" parent="data-sources-container" source="zscaler">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="825" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zscaler" value="Zscaler&lt;br&gt;&lt;font style=&quot;font-size: 9px&quot;&gt;(SaaS Security)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=10;fontStyle=1;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="data-sources-container" vertex="1">
+          <mxGeometry x="60" y="800" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="dfc-container" value="Microsoft Defender for Cloud" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFEBEE;strokeColor=#E4002B;fontStyle=1;fontSize=16;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="1" vertex="1">
+          <mxGeometry x="440" y="180" width="360" height="770" as="geometry" />
+        </mxCell>
+        <mxCell id="posture" value="CSPM (Security Posture)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF9A9A;strokeColor=#E4002B;fontSize=11;fontStyle=1;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="dfc-container" vertex="1">
+          <mxGeometry x="80" y="70" width="200" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="cwpp" value="CWPP (Workload Protection)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF9A9A;strokeColor=#E4002B;fontSize=11;fontStyle=1;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="dfc-container" vertex="1">
+          <mxGeometry x="80" y="198" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="compliance-engine" value="Regulatory Compliance Engine" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#E4002B;fontSize=12;fontStyle=1;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="dfc-container" vertex="1">
+          <mxGeometry x="50" y="345" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="recommendations" value="Security Recommendations" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF9A9A;strokeColor=#E4002B;fontSize=11;fontStyle=1;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="dfc-container" vertex="1">
+          <mxGeometry x="80" y="443" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="securescore" value="Secure Score" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF9A9A;strokeColor=#E4002B;fontSize=11;fontStyle=1;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="dfc-container" vertex="1">
+          <mxGeometry x="80" y="547" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="alerts" value="Security Alerts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF9A9A;strokeColor=#E4002B;fontSize=11;fontStyle=1;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="dfc-container" vertex="1">
+          <mxGeometry x="80" y="650" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="analysis-container" value="Analysis and Governance" style="swimlane;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#424242;fontStyle=1;fontSize=14;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="1" vertex="1">
+          <mxGeometry x="931" y="180" width="320" height="540" as="geometry" />
+        </mxCell>
+        <mxCell id="Kw4I0v1wzE19PpY0VDc--1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.75;entryDx=0;entryDy=0;exitX=0.995;exitY=0.463;exitDx=0;exitDy=0;exitPerimeter=0;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" edge="1" parent="analysis-container" source="sentinel" target="reporting">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="289" y="134" />
+              <mxPoint x="289" y="503" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sentinel" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Microsoft Sentinel&lt;br&gt;&lt;font style=&quot;&quot;&gt;(SIEM + SOAR)&lt;/font&gt;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;• Advanced Threat Detection&lt;/span&gt;&lt;br style=&quot;font-weight: 400;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;• Security Incident Management&lt;/span&gt;&lt;br style=&quot;font-weight: 400;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;• Threat Intelligence&lt;/span&gt;&lt;br style=&quot;font-weight: 400;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;• Automated Response&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BDBDBD;strokeColor=#424242;fontSize=11;fontStyle=1;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="analysis-container" vertex="1">
+          <mxGeometry x="60" y="60" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="Kw4I0v1wzE19PpY0VDc--3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" edge="1" parent="analysis-container" source="purview" target="reporting">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="289" y="345" />
+              <mxPoint x="289" y="468" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="purview" value="Microsoft Purview&lt;br&gt;&lt;font&gt;(Data Governance)&lt;/font&gt;&lt;div&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;• Data Classification&lt;/span&gt;&lt;br style=&quot;font-weight: 400;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;• Data Loss Prevention (DLP)&lt;/span&gt;&lt;br style=&quot;font-weight: 400;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;• Information Protection&lt;/span&gt;&lt;br style=&quot;font-weight: 400;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;• Compliance Management&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BDBDBD;strokeColor=#424242;fontSize=12;fontStyle=1;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="analysis-container" vertex="1">
+          <mxGeometry x="60" y="270" width="200" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="reporting" value="Compliance Reports&lt;br&gt;&lt;font&gt;(Export and Distribution)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=12;fontStyle=1;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="analysis-container" vertex="1">
+          <mxGeometry x="60" y="450" width="200" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="standards-container" value="Compliance Standards and Dashboards" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E4002B;fontStyle=1;fontSize=14;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="1" vertex="1">
+          <mxGeometry x="931" y="760" width="320" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="standards" value="CIS Benchmarks&lt;br&gt;PCI-DSS&lt;br&gt;ISO 27001&lt;br&gt;NIST 800-53&lt;br&gt;GDPR&lt;br&gt;HIPAA&lt;br&gt;SOC 2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#424242;fontSize=12;fontStyle=0;fontFamily=Open Sans;align=center;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="standards-container" vertex="1">
+          <mxGeometry x="40" y="40" width="240" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#424242;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="1" source="endpoints" target="mde" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#424242;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="1" source="servers" target="mds" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow13" value="Security Events&amp;nbsp;&lt;div&gt;and Alerts&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#E4002B;fontSize=12;fontFamily=Open Sans;labelBackgroundColor=#ffffff;fontStyle=1;rounded=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="1" source="compliance-engine" target="sentinel" edge="1">
+          <mxGeometry x="0.4553" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="840" y="560" />
+              <mxPoint x="840" y="320" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow14" value="Compliance&amp;nbsp;&lt;div&gt;Data&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#E4002B;fontSize=12;fontFamily=Open Sans;labelBackgroundColor=#ffffff;fontStyle=1;rounded=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="1" source="compliance-engine" target="purview" edge="1">
+          <mxGeometry x="0.2681" y="5" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="890" y="560" />
+              <mxPoint x="890" y="525" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend-container" value="Legend" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#424242;fontStyle=1;fontSize=12;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="1" vertex="1">
+          <mxGeometry x="1300" y="830" width="370" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-defender" value="Defender Services" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#E4002B;fontSize=11;fontStyle=1;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="legend-container" vertex="1">
+          <mxGeometry x="135" y="45" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-data" value="Data Sources" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=11;fontStyle=1;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="legend-container" vertex="1">
+          <mxGeometry x="245" y="45" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-analysis" value="Analysis Tools" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BDBDBD;strokeColor=#424242;fontSize=11;fontStyle=1;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" parent="legend-container" vertex="1">
+          <mxGeometry x="25" y="45" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Kw4I0v1wzE19PpY0VDc--28" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#E4002B;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;fontStyle=1;rounded=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" edge="1" parent="1" source="compliance-engine" target="standards-container">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Kw4I0v1wzE19PpY0VDc--30" value="&lt;font&gt;&lt;b&gt;Compliance&amp;nbsp;&lt;/b&gt;&lt;/font&gt;&lt;div&gt;&lt;font&gt;&lt;b&gt;Assessment&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontFamily=Open Sans;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DOpen%2BSans;" vertex="1" connectable="0" parent="Kw4I0v1wzE19PpY0VDc--28">
+          <mxGeometry x="0.0504" y="-3" relative="1" as="geometry">
+            <mxPoint x="23" y="21" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
