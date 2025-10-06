@@ -1,0 +1,109 @@
+<mxfile host="app.diagrams.net" modified="2025-10-06T00:00:00.000Z" agent="Claude" version="24.0.0" etag="sharepoint-guest-access">
+  <diagram name="SharePoint Guest Access Flow" id="sharepoint-flow">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- External Users Container -->
+        <mxCell id="external-container" value="External Users" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFEBEE;strokeColor=#E4002B;fontStyle=1;fontSize=14;fontFamily=Open Sans;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="240" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="guest-user" value="👤 Guest User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#E4002B;fontSize=12;fontStyle=1;fontFamily=Open Sans;" vertex="1" parent="external-container">
+          <mxGeometry x="40" y="50" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Entra ID Container -->
+        <mxCell id="entraid-container" value="Microsoft Entra ID" style="swimlane;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#424242;fontStyle=1;fontSize=14;fontFamily=Open Sans;" vertex="1" parent="1">
+          <mxGeometry x="320" y="40" width="280" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="auth-context" value="🔐 Authentication Context&lt;br&gt;(Conditional Access)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=11;fontStyle=1;fontFamily=Open Sans;" vertex="1" parent="entraid-container">
+          <mxGeometry x="40" y="50" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="access-package" value="📦 Access Package" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=11;fontStyle=1;fontFamily=Open Sans;" vertex="1" parent="entraid-container">
+          <mxGeometry x="40" y="140" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="access-review" value="🔍 Access Review" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=11;fontStyle=1;fontFamily=Open Sans;" vertex="1" parent="entraid-container">
+          <mxGeometry x="40" y="230" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- SharePoint Container -->
+        <mxCell id="sharepoint-container" value="SharePoint Online" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#424242;fontStyle=1;fontSize=14;fontFamily=Open Sans;" vertex="1" parent="1">
+          <mxGeometry x="640" y="40" width="280" height="470" as="geometry" />
+        </mxCell>
+        <mxCell id="m365-group" value="👥 M365 Group&lt;br&gt;Owners/Members&lt;br&gt;(Site Admin Access)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BDBDBD;strokeColor=#424242;fontSize=10;fontStyle=1;fontFamily=Open Sans;" vertex="1" parent="sharepoint-container">
+          <mxGeometry x="40" y="50" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="sp-site" value="📁 SharePoint Site" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#424242;fontSize=11;fontStyle=1;fontFamily=Open Sans;" vertex="1" parent="sharepoint-container">
+          <mxGeometry x="40" y="140" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="content" value="📄 Content" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#424242;fontSize=11;fontStyle=1;fontFamily=Open Sans;" vertex="1" parent="sharepoint-container">
+          <mxGeometry x="40" y="230" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="sensitive-content" value="⚠️ Official Sensitive&lt;br&gt;Content" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#E4002B;fontSize=11;fontStyle=1;fontFamily=Open Sans;" vertex="1" parent="sharepoint-container">
+          <mxGeometry x="40" y="320" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Purview Container -->
+        <mxCell id="purview-container" value="Microsoft Purview" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFEBEE;strokeColor=#E4002B;fontStyle=1;fontSize=14;fontFamily=Open Sans;" vertex="1" parent="1">
+          <mxGeometry x="640" y="550" width="280" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="dlp-policy" value="🛡️ DLP Policy&lt;br&gt;(Blocks Official Sensitive)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF9A9A;strokeColor=#E4002B;fontSize=11;fontStyle=1;fontFamily=Open Sans;" vertex="1" parent="purview-container">
+          <mxGeometry x="40" y="50" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="exclusion-list" value="📋 Site Exclusion List&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;e.g., contoso.sharepoint.com/&lt;br&gt;sites/finance&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F9A825;fontSize=10;fontStyle=1;fontFamily=Open Sans;" vertex="1" parent="purview-container">
+          <mxGeometry x="40" y="140" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrows/Connections -->
+        <!-- M365 Group to SharePoint Site -->
+        <mxCell id="arrow-m365" value="Site Admin&lt;br&gt;Access Control" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#424242;dashed=1;fontSize=10;fontColor=#000000;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="m365-group" target="sp-site">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- 1. Guest User to Auth Context -->
+        <mxCell id="arrow1" value="1. Attempts Access" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#E4002B;fontSize=10;fontColor=#000000;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="guest-user" target="auth-context">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- 2. Auth Context to Access Package -->
+        <mxCell id="arrow2" value="2. Authentication&lt;br&gt;Requirements Met" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#424242;fontSize=10;fontColor=#000000;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="auth-context" target="access-package">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- 3. Access Package to Access Review -->
+        <mxCell id="arrow3" value="3. Entitled via&lt;br&gt;Access Package" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#424242;fontSize=10;fontColor=#000000;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="access-package" target="access-review">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- 4. Access Review to SharePoint Site -->
+        <mxCell id="arrow4" value="4. Access Approved&lt;br&gt;&amp;amp; Current" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#424242;fontSize=10;fontColor=#000000;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="access-review" target="sp-site">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580" y="310" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 5. SharePoint Site to Content -->
+        <mxCell id="arrow5" value="5. Access Content" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#424242;fontSize=10;fontColor=#000000;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="sp-site" target="content">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- 6. SharePoint Site attempts Sensitive Content -->
+        <mxCell id="arrow6" value="6. Attempts Access" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#E4002B;dashed=1;fontSize=10;fontColor=#000000;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="sp-site" target="sensitive-content">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- 7. DLP Blocks Sensitive Content -->
+        <mxCell id="arrow7" value="7. BLOCKS Access" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#E4002B;dashed=1;fontSize=10;fontColor=#000000;fontStyle=1;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="dlp-policy" target="sensitive-content">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Exclusion List to DLP -->
+        <mxCell id="arrow-exclusion" value="Excluded Sites&lt;br&gt;Bypass DLP" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#F9A825;dashed=1;fontSize=10;fontColor=#000000;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="exclusion-list" target="dlp-policy">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
