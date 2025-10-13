@@ -1,0 +1,76 @@
+<mxfile host="65bd71144e">
+    <diagram id="three-workstyles-overview" name="Three Workstyles Overview">
+        <mxGraphModel dx="1173" dy="1091" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="title" value="Workstyles Overview — Security and productivity balance" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E4002B;strokeColor=#424242;fontSize=16;fontStyle=1;fontFamily=Open Sans;fontColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="260" y="30" width="480" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="standard-container" value="Standard User Workstyle" style="swimlane;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#424242;fontSize=14;fontFamily=Open Sans;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="140" width="280" height="380" as="geometry"/>
+                </mxCell>
+                <mxCell id="std-purpose" value="Least Privilege Baseline&lt;br/&gt;Productivity Suite Focus" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=11;fontFamily=Open Sans;" parent="standard-container" vertex="1">
+                    <mxGeometry x="40" y="50" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="std-security" value="Security: Strong Baseline&lt;br&gt;Risk: Low&lt;br&gt;Flexibility: High" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontFamily=Open Sans;" parent="standard-container" vertex="1">
+                    <mxGeometry x="40" y="140" width="200" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="std-controls" value="Standard user permissions&lt;br&gt;Productivity applications&lt;br&gt;Standard security tooling&lt;br&gt;No elevation required" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=10;fontFamily=Open Sans;" parent="standard-container" vertex="1">
+                    <mxGeometry x="40" y="250" width="200" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="std-flow1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#424242;" parent="standard-container" source="std-purpose" target="std-security" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="std-flow2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#424242;" parent="standard-container" source="std-security" target="std-controls" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="paw-container" value="Privileged Access Workstation" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFEBEE;strokeColor=#E4002B;fontSize=14;fontFamily=Open Sans;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="140" width="280" height="380" as="geometry"/>
+                </mxCell>
+                <mxCell id="paw-purpose" value="Admin Operations Only&lt;br/&gt;Hardened and Isolated Device" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="paw-container" vertex="1">
+                    <mxGeometry x="40" y="50" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="paw-security" value="Security: Maximum&lt;br/&gt;Risk: Lowest&lt;br/&gt;Flexibility: Restricted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontFamily=Open Sans;" parent="paw-container" vertex="1">
+                    <mxGeometry x="40" y="140" width="200" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="paw-controls" value="Network isolation&lt;br/&gt;Application allow-listing&lt;br/&gt;Just-in-Time access&lt;br/&gt;No email or web browsing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=10;fontFamily=Open Sans;fontColor=#333333;" parent="paw-container" vertex="1">
+                    <mxGeometry x="40" y="250" width="200" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="paw-flow1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#000000;" parent="paw-container" source="paw-purpose" target="paw-security" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="paw-flow2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#000000;" parent="paw-container" source="paw-security" target="paw-controls" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="dev-container" value="Developer Workstyle" style="swimlane;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#424242;fontSize=14;fontFamily=Open Sans;" parent="1" vertex="1">
+                    <mxGeometry x="680" y="140" width="280" height="380" as="geometry"/>
+                </mxCell>
+                <mxCell id="dev-purpose" value="Collaboration and Development&lt;br/&gt;EPM-Mediated Coexistence" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BDBDBD;strokeColor=#424242;fontSize=11;fontFamily=Open Sans;" parent="dev-container" vertex="1">
+                    <mxGeometry x="40" y="50" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="dev-security" value="Security: High with EPM&lt;br/&gt;Risk: Managed&lt;br/&gt;Flexibility: Balanced" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontFamily=Open Sans;" parent="dev-container" vertex="1">
+                    <mxGeometry x="40" y="140" width="200" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="dev-controls" value="EPM elevation gateway&lt;br&gt;Hardware access controls (to allow developer USB devices)&lt;br&gt;Signed tools only&lt;br&gt;Anomaly detection" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BDBDBD;strokeColor=#424242;fontSize=10;fontFamily=Open Sans;" parent="dev-container" vertex="1">
+                    <mxGeometry x="40" y="250" width="200" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="dev-flow1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#424242;" parent="dev-container" source="dev-purpose" target="dev-security" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="dev-flow2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#424242;" parent="dev-container" source="dev-security" target="dev-controls" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="title-to-std" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#424242;fontSize=10;fontColor=#000000;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" parent="1" source="title" target="standard-container" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="title-to-paw" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#424242;fontSize=10;fontColor=#000000;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" parent="1" source="title" target="paw-container" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="title-to-dev" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#424242;fontSize=10;fontColor=#000000;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" parent="1" source="title" target="dev-container" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
