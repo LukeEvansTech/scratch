@@ -1,0 +1,85 @@
+<mxfile host="65bd71144e">
+    <diagram id="paw-architecture" name="PAW Architecture">
+        <mxGraphModel dx="1173" dy="1091" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="title" value="Privileged Access Workstation (PAW) Architecture" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=16;fontStyle=1;fontFamily=Open Sans;" parent="1" vertex="1">
+                    <mxGeometry x="260" y="40" width="520" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="identity-container" value="Identity and Access Layer" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontFamily=Open Sans;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="140" width="280" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="mfa" value="Multi-Factor Authentication&lt;br/&gt;Hardware tokens and biometrics" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="identity-container" vertex="1">
+                    <mxGeometry x="40" y="50" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="jit" value="Just-in-Time Access&lt;br/&gt;Time-bound elevation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="identity-container" vertex="1">
+                    <mxGeometry x="40" y="130" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="tiering" value="Administrative Tiering&lt;br/&gt;Tier 0, 1, 2 separation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="identity-container" vertex="1">
+                    <mxGeometry x="40" y="210" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="integrity-container" value="Application and Code Integrity" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontFamily=Open Sans;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="140" width="280" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="wdac" value="Windows Defender Application Control&lt;br/&gt;Deny-by-default policy" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="integrity-container" vertex="1">
+                    <mxGeometry x="40" y="50" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="signing" value="Code Signing Validation&lt;br/&gt;Certificate-based verification" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="integrity-container" vertex="1">
+                    <mxGeometry x="40" y="130" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="inventory" value="Application Inventory&lt;br/&gt;Approved admin tools only" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="integrity-container" vertex="1">
+                    <mxGeometry x="40" y="210" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="network-container" value="Network Isolation Controls" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontFamily=Open Sans;" parent="1" vertex="1">
+                    <mxGeometry x="680" y="140" width="280" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="no-internet" value="No Internet access&lt;br&gt;Blocked web browsing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="network-container" vertex="1">
+                    <mxGeometry x="40" y="50" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="admin-portals" value="Admin Portal Access Only&lt;br&gt;Entra ID, Exchange, etc." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="network-container" vertex="1">
+                    <mxGeometry x="40" y="130" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="segmentation" value="Zero Trust network segmentation&lt;div&gt;Identity and posture aware&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="network-container" vertex="1">
+                    <mxGeometry x="40" y="210" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="detection-container" value="Detection and Response" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontFamily=Open Sans;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="460" width="280" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="edr" value="Endpoint Detection Response&lt;br/&gt;Advanced threat hunting" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="detection-container" vertex="1">
+                    <mxGeometry x="40" y="50" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="siem" value="SIEM Integration&lt;br/&gt;Centralised log analysis" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="detection-container" vertex="1">
+                    <mxGeometry x="40" y="130" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="analytics" value="Behavioural Analytics&lt;br/&gt;Anomaly detection" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="detection-container" vertex="1">
+                    <mxGeometry x="40" y="210" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="host-container" value="Host Protection Foundation" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontFamily=Open Sans;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="460" width="280" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="core-isolation" value="Core Isolation&lt;br/&gt;Memory integrity protection" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="host-container" vertex="1">
+                    <mxGeometry x="40" y="50" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="vbs" value="Virtualisation Security&lt;br/&gt;HVCI kernel protection" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="host-container" vertex="1">
+                    <mxGeometry x="40" y="130" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="secure-boot" value="Secure Boot Chain&lt;br/&gt;TPM-based attestation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="host-container" vertex="1">
+                    <mxGeometry x="40" y="210" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="hardware-container" value="Hardware Security" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontFamily=Open Sans;" parent="1" vertex="1">
+                    <mxGeometry x="680" y="460" width="280" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="hardened-device" value="Hardened Device Configuration&lt;br/&gt;Enterprise-grade security" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="hardware-container" vertex="1">
+                    <mxGeometry x="40" y="50" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="tpm" value="TPM 2.0 Integration&lt;br/&gt;Hardware security module" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="hardware-container" vertex="1">
+                    <mxGeometry x="40" y="130" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="physical" value="Physical Security Controls&lt;br/&gt;Asset tracking and control" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="hardware-container" vertex="1">
+                    <mxGeometry x="40" y="210" width="200" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
