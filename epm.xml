@@ -1,0 +1,85 @@
+<mxfile host="65bd71144e">
+    <diagram id="developer-architecture" name="Developer Architecture">
+        <mxGraphModel dx="1173" dy="1091" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="title" value="Developer Workstyle — Coexistent with EPM Controls" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=16;fontStyle=1;fontFamily=Open Sans;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="40" width="600" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="collaboration-container" value="Collaboration Layer - Non-elevated" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontFamily=Open Sans;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="140" width="280" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="browsing" value="Web Browsing&lt;br/&gt;Productivity tools" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="collaboration-container" vertex="1">
+                    <mxGeometry x="40" y="50" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="communication" value="Communication Apps&lt;br&gt;Teams, Email" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="collaboration-container" vertex="1">
+                    <mxGeometry x="40" y="130" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="documentation" value="Collaboration&lt;br&gt;Office suite, SharePoint" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="collaboration-container" vertex="1">
+                    <mxGeometry x="40" y="210" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="devtools-container" value="Developer Tools - EPM Gated" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontFamily=Open Sans;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="140" width="280" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="ides" value="Development IDEs&lt;br/&gt;Visual Studio, VS Code" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="devtools-container" vertex="1">
+                    <mxGeometry x="40" y="50" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="hardware" value="Hardware Interfaces&lt;br/&gt;USB debugging, flashers" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="devtools-container" vertex="1">
+                    <mxGeometry x="40" y="130" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="build-systems" value="Build Systems&lt;br/&gt;Compilers, build tools" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="devtools-container" vertex="1">
+                    <mxGeometry x="40" y="210" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="device-container" value="Device and Hardware Controls" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontFamily=Open Sans;" parent="1" vertex="1">
+                    <mxGeometry x="680" y="140" width="280" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="usb-filter" value="USB Device Filtering&lt;br/&gt;Vendor and Product ID allow list" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="device-container" vertex="1">
+                    <mxGeometry x="40" y="50" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="driver-policy" value="Driver Installation Policy&lt;br/&gt;Signed drivers only" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="device-container" vertex="1">
+                    <mxGeometry x="40" y="130" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="hw-access" value="Hardware Access Control&lt;br/&gt;Debug interfaces, probes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="device-container" vertex="1">
+                    <mxGeometry x="40" y="210" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="app-integrity-container" value="Application and Code Integrity" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontFamily=Open Sans;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="500" width="280" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="flexible-policy" value="Flexible Application Policy&lt;br/&gt;Risk-based rather than deny-by-default" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="app-integrity-container" vertex="1">
+                    <mxGeometry x="40" y="50" width="200" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="code-signing" value="Code Signing Validation&lt;br/&gt;Preferred but not blocking" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="app-integrity-container" vertex="1">
+                    <mxGeometry x="40" y="140" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="behavior-monitoring" value="Behaviour Monitoring&lt;br/&gt;Runtime analysis over static blocking" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="app-integrity-container" vertex="1">
+                    <mxGeometry x="40" y="210" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="epm-container" value="EPM Security Layer" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontFamily=Open Sans;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="500" width="280" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="rule-based" value="Rule-based Elevation&lt;br/&gt;Path, hash, signature checks" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="epm-container" vertex="1">
+                    <mxGeometry x="40" y="50" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="time-bound" value="Time-bound Sessions&lt;br/&gt;Auto-revoke on timeout" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="epm-container" vertex="1">
+                    <mxGeometry x="40" y="130" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="audit" value="Audit and Compliance&lt;br/&gt;Full elevation logging" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="epm-container" vertex="1">
+                    <mxGeometry x="40" y="210" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="detection-container" value="Detection and Response" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontFamily=Open Sans;" parent="1" vertex="1">
+                    <mxGeometry x="680" y="500" width="280" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="edr-monitoring" value="EDR Monitoring&lt;br/&gt;Endpoint behaviour analysis" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="detection-container" vertex="1">
+                    <mxGeometry x="40" y="50" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="siem-integration" value="SIEM Integration&lt;br/&gt;Elevation event correlation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="detection-container" vertex="1">
+                    <mxGeometry x="40" y="130" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="anomaly" value="Anomaly Detection&lt;br/&gt;Unusual tool and driver usage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontFamily=Open Sans;fontColor=#333333;" parent="detection-container" vertex="1">
+                    <mxGeometry x="40" y="210" width="200" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
