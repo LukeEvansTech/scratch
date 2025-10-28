@@ -1,0 +1,43 @@
+sequenceDiagram
+    participant SD as Service Desk
+    participant IS as InfoSec
+    participant TP as Third Party
+    participant TO as TechOps & Netcompany
+    participant TEN as M365 and Entra ID Tenant
+    participant GOV as Governance Access Reviews
+
+    Note over SD: Request initiation
+    SD->>SD: User raises request via Service Desk form
+    SD->>IS: Form submitted to InfoSec for security review
+
+    Note over IS: Security assessment
+    IS->>IS: Review request against control set
+    IS->>IS: Record approval and rationale
+    IS-->>TP: Issue Code of Connection for acceptance
+
+    Note over TP: Third party agreement
+    TP->>TP: Review Code of Connection
+    TP-->>IS: Confirm acceptance
+    IS-->>TO: Notify approval and request implementation
+
+    Note over TO: Technical enablement
+    TO->>TO: Raise change requests
+    TO->>TO: Provision collaboration area e.g. M365 Team or SharePoint
+    TO->>TO: Configure guest access and sharing settings
+    TO->>TEN: Invite third party guest accounts into Entra ID tenant
+    TO->>IS: Owner to be confirmed Invite guests into the Team
+
+    Note over TEN: First login controls
+    TEN->>TP: Prompt for MFA registration via Conditional Access
+    TEN->>TP: Present Terms of Use for acceptance
+    TP-->>TEN: Complete registration and accept policies
+
+    Note over GOV: Ongoing governance
+    GOV->>TEN: Run Access Reviews on schedule
+    TEN-->>GOV: Report access status and anomalies
+    GOV->>IS: Notify of non compliance or expired access
+    IS->>TO: Remove or remediate access as required
+
+    Note over IS,TO: Operational handover
+    IS->>TO: Transfer documentation and ownership
+    TO-->>IS: Confirm transition complete
