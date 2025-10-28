@@ -1,0 +1,161 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.2.5 Chrome/138.0.7204.251 Electron/37.6.1 Safari/537.36" version="28.2.5">
+  <diagram id="JqbRLwhh4x-Va750tHYO" name="Page-1">
+    <mxGraphModel dx="2514" dy="1471" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="laneSD" value="Service Desk" style="swimlane;startSize=40;fillColor=#F7F7F7;strokeColor=#B0B0B0;fontSize=12;fontFamily=Open Sans;rounded=1;headerFillColor=#E4002B;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry width="300" height="650" as="geometry" />
+        </mxCell>
+        <mxCell id="nodeA" value="User raises request via Service Desk form (capture: need, data class, org, users, retention, owner, review)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;fontFamily=Open Sans;spacing=8;" parent="laneSD" vertex="1">
+          <mxGeometry x="20" y="60" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="nodeA2" value="Form submitted to InfoSec for security review" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;fontFamily=Open Sans;spacing=8;" parent="laneSD" vertex="1">
+          <mxGeometry x="20" y="180" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="laneIS" value="InfoSec" style="swimlane;startSize=40;fillColor=#F7F7F7;strokeColor=#B0B0B0;fontSize=12;fontFamily=Open Sans;rounded=1;headerFillColor=#E4002B;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="300" width="300" height="650" as="geometry" />
+        </mxCell>
+        <mxCell id="nodeB" value="Review against approved control set&amp;nbsp;&lt;div&gt;Record decision and rationale&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;fontFamily=Open Sans;spacing=8;" parent="laneIS" vertex="1">
+          <mxGeometry x="20" y="60" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="nodeD" value="Issue Code of Connection (CoC) to third party" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;fontFamily=Open Sans;spacing=8;" parent="laneIS" vertex="1">
+          <mxGeometry x="20" y="180" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="laneTP" value="Third Party" style="swimlane;startSize=40;fillColor=#F7F7F7;strokeColor=#B0B0B0;fontSize=12;fontFamily=Open Sans;rounded=1;headerFillColor=#E4002B;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="600" width="300" height="650" as="geometry" />
+        </mxCell>
+        <mxCell id="nodeE" value="Third party reviews CoC" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;fontFamily=Open Sans;spacing=8;" parent="laneTP" vertex="1">
+          <mxGeometry x="20" y="60" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="nodeF" value="Confirm CoC acceptance" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;fontFamily=Open Sans;spacing=8;" parent="laneTP" vertex="1">
+          <mxGeometry x="20" y="180" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="laneTO" value="TechOps &amp; Netcompany" style="swimlane;startSize=40;fillColor=#F7F7F7;strokeColor=#B0B0B0;fontSize=12;fontFamily=Open Sans;rounded=1;headerFillColor=#E4002B;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="900" width="300" height="650" as="geometry" />
+        </mxCell>
+        <mxCell id="nodeG" value="Raise change requests for technical controls" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;fontFamily=Open Sans;spacing=8;" parent="laneTO" vertex="1">
+          <mxGeometry x="20" y="60" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="nodeH" value="Provision collaboration area (Team/SharePoint)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;fontFamily=Open Sans;spacing=8;" parent="laneTO" vertex="1">
+          <mxGeometry x="20" y="180" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="nodeI" value="Configure third-party access settings" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;fontFamily=Open Sans;spacing=8;" parent="laneTO" vertex="1">
+          <mxGeometry x="20" y="300" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="nodeJ" value="Invite third-party accounts into Entra ID tenant" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;fontFamily=Open Sans;spacing=8;" parent="laneTO" vertex="1">
+          <mxGeometry x="20" y="420" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="nodeK" value="Invite guests into the Team (Owner TBC)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;fontFamily=Open Sans;spacing=8;" parent="laneTO" vertex="1">
+          <mxGeometry x="20" y="540" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="laneTEN" value="M365 / Entra ID Tenant" style="swimlane;startSize=40;fillColor=#F7F7F7;strokeColor=#B0B0B0;fontSize=12;fontFamily=Open Sans;rounded=1;headerFillColor=#E4002B;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="1200" width="300" height="650" as="geometry" />
+        </mxCell>
+        <mxCell id="nodeL" value="Guest signs in to tenant" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;fontFamily=Open Sans;spacing=8;" parent="laneTEN" vertex="1">
+          <mxGeometry x="20" y="60" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="nodeM" value="Register MFA (Conditional Access)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;fontFamily=Open Sans;spacing=8;" parent="laneTEN" vertex="1">
+          <mxGeometry x="20" y="180" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="nodeN" value="Accept Terms of Use (Conditional Access)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;fontFamily=Open Sans;spacing=8;" parent="laneTEN" vertex="1">
+          <mxGeometry x="20" y="300" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="laneGOV" value="Governance (Access Reviews)" style="swimlane;startSize=40;fillColor=#F7F7F7;strokeColor=#B0B0B0;fontSize=12;fontFamily=Open Sans;rounded=1;headerFillColor=#E4002B;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="1500" width="300" height="650" as="geometry" />
+        </mxCell>
+        <mxCell id="nodeO" value="Initial access validation (least privilege, labels)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;fontFamily=Open Sans;spacing=8;" parent="laneGOV" vertex="1">
+          <mxGeometry x="20" y="60" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="nodeP" value="Access Reviews scheduled and executed" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;fontFamily=Open Sans;spacing=8;" parent="laneGOV" vertex="1">
+          <mxGeometry x="20" y="180" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="nodeQ" value="If access no longer valid remove or downgrade" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;fontFamily=Open Sans;spacing=8;" parent="laneGOV" vertex="1">
+          <mxGeometry x="20" y="300" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="nodeS" value="Log, audit, notify owners" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;fontFamily=Open Sans;spacing=8;" parent="laneGOV" vertex="1">
+          <mxGeometry x="20" y="420" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="edge100" value="" style="endArrow=block;rounded=1;jettySize=auto;orthogonalLoop=1;" parent="1" source="nodeA" target="nodeA2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge102" value="" style="endArrow=block;rounded=1;jettySize=auto;orthogonalLoop=1;" parent="1" source="nodeB" target="nodeD" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge104" value="" style="endArrow=block;rounded=1;jettySize=auto;orthogonalLoop=1;" parent="1" source="nodeE" target="nodeF" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge106" value="" style="endArrow=block;rounded=1;jettySize=auto;orthogonalLoop=1;" parent="1" source="nodeG" target="nodeH" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge107" value="" style="endArrow=block;rounded=1;jettySize=auto;orthogonalLoop=1;" parent="1" source="nodeH" target="nodeI" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge108" value="" style="endArrow=block;rounded=1;jettySize=auto;orthogonalLoop=1;" parent="1" source="nodeI" target="nodeJ" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge109" value="" style="endArrow=block;rounded=1;jettySize=auto;orthogonalLoop=1;" parent="1" source="nodeJ" target="nodeK" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge111" value="" style="endArrow=block;rounded=1;jettySize=auto;orthogonalLoop=1;" parent="1" source="nodeL" target="nodeM" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge112" value="" style="endArrow=block;rounded=1;jettySize=auto;orthogonalLoop=1;" parent="1" source="nodeM" target="nodeN" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge114" value="" style="endArrow=block;rounded=1;jettySize=auto;orthogonalLoop=1;" parent="1" source="nodeO" target="nodeP" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge115" value="" style="endArrow=block;rounded=1;jettySize=auto;orthogonalLoop=1;" parent="1" source="nodeP" target="nodeQ" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge116" value="" style="endArrow=block;rounded=1;jettySize=auto;orthogonalLoop=1;" parent="1" source="nodeQ" target="nodeS" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge117" value="" style="endArrow=block;rounded=1;jettySize=auto;orthogonalLoop=1;" parent="1" source="nodeS" target="nodeP" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G-mBFKyVkiaKvL9I_19z-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="nodeN" target="nodeO">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1490" y="340" />
+              <mxPoint x="1490" y="100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="G-mBFKyVkiaKvL9I_19z-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="nodeK" target="nodeL">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1190" y="580" />
+              <mxPoint x="1190" y="100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="G-mBFKyVkiaKvL9I_19z-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="nodeF" target="nodeG">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="890" y="220" />
+              <mxPoint x="890" y="100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="G-mBFKyVkiaKvL9I_19z-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="nodeD" target="nodeE">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="590" y="220" />
+              <mxPoint x="590" y="100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="G-mBFKyVkiaKvL9I_19z-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="nodeA2" target="nodeB">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="290" y="220" />
+              <mxPoint x="290" y="100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
