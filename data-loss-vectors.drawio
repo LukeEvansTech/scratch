@@ -1,0 +1,160 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.0.3 Chrome/140.0.7339.249 Electron/38.7.0 Safari/537.36" version="29.0.3">
+  <diagram name="Data Loss Vectors" id="data-loss-vectors">
+    <mxGraphModel dx="2514" dy="1461" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="Data Loss Vectors - Boundary Overview" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontFamily=Open Sans;fontColor=#E4002B;" parent="1" vertex="1">
+          <mxGeometry x="390" y="20" width="600" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="user-container" value="User/Endpoint" style="swimlane;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#424242;fontStyle=1;fontSize=14;fontFamily=Open Sans;startSize=30;" parent="1" vertex="1">
+          <mxGeometry x="40" y="80" width="280" height="340" as="geometry" />
+        </mxCell>
+        <mxCell id="user-laptop" value="Laptop/Workstation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="user-container" vertex="1">
+          <mxGeometry x="40" y="40" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="user-clipboard" value="Copy/Paste/Clipboard" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#E4002B;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="user-container" vertex="1">
+          <mxGeometry x="40" y="90" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="user-screenshot" value="Screenshots/Screen Capture" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#E4002B;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="user-container" vertex="1">
+          <mxGeometry x="40" y="140" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="user-screenshare" value="Screen Sharing (Teams/Zoom)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#E4002B;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="user-container" vertex="1">
+          <mxGeometry x="40" y="190" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="user-camera" value="Camera/Photography" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="user-container" vertex="1">
+          <mxGeometry x="40" y="240" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="user-vm" value="Virtual Machines" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="user-container" vertex="1">
+          <mxGeometry x="40" y="290" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="physical-container" value="Physical/Hardware" style="swimlane;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#424242;fontStyle=1;fontSize=14;fontFamily=Open Sans;startSize=30;" parent="1" vertex="1">
+          <mxGeometry x="640" y="80" width="280" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="usb-device" value="USB/Removable Media" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF9A9A;strokeColor=#E4002B;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="physical-container" vertex="1">
+          <mxGeometry x="40" y="40" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="print" value="Printers/Physical Print" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#E4002B;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="physical-container" vertex="1">
+          <mxGeometry x="40" y="90" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="external-drive" value="External Hard Drives" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#E4002B;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="physical-container" vertex="1">
+          <mxGeometry x="40" y="140" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="bluetooth" value="Bluetooth Transfers" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="physical-container" vertex="1">
+          <mxGeometry x="40" y="190" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="airdrop" value="AirDrop/Wireless Transfer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="physical-container" vertex="1">
+          <mxGeometry x="40" y="240" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="network-container" value="Network/Internet" style="swimlane;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#424242;fontStyle=1;fontSize=14;fontFamily=Open Sans;startSize=30;" parent="1" vertex="1">
+          <mxGeometry x="40" y="440" width="280" height="340" as="geometry" />
+        </mxCell>
+        <mxCell id="web-upload" value="Web Browser Upload" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#E4002B;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="network-container" vertex="1">
+          <mxGeometry x="40" y="40" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="personal-cloud" value="Personal Cloud (Dropbox, GDrive)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF9A9A;strokeColor=#E4002B;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="network-container" vertex="1">
+          <mxGeometry x="40" y="90" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="file-sharing" value="File Sharing Sites" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#E4002B;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="network-container" vertex="1">
+          <mxGeometry x="40" y="140" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ftp-sftp" value="FTP/SFTP Transfers" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="network-container" vertex="1">
+          <mxGeometry x="40" y="190" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rdp-vdi" value="Remote Desktop/VDI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="network-container" vertex="1">
+          <mxGeometry x="40" y="240" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="vpn-tunnel" value="VPN Split Tunneling" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="network-container" vertex="1">
+          <mxGeometry x="40" y="290" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="comms-container" value="Communication Channels" style="swimlane;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#424242;fontStyle=1;fontSize=14;fontFamily=Open Sans;startSize=30;" parent="1" vertex="1">
+          <mxGeometry x="640" y="440" width="280" height="340" as="geometry" />
+        </mxCell>
+        <mxCell id="email" value="Corporate Email (Internal/External)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#E4002B;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="comms-container" vertex="1">
+          <mxGeometry x="40" y="40" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="personal-email" value="Personal Email (Gmail, Yahoo)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF9A9A;strokeColor=#E4002B;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="comms-container" vertex="1">
+          <mxGeometry x="40" y="90" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="teams-chat" value="Teams/Slack Chat" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#E4002B;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="comms-container" vertex="1">
+          <mxGeometry x="40" y="140" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="messaging-apps" value="WhatsApp/Signal/Telegram" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF9A9A;strokeColor=#E4002B;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="comms-container" vertex="1">
+          <mxGeometry x="40" y="190" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="social-media" value="Social Media (LinkedIn, Twitter)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#E4002B;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="comms-container" vertex="1">
+          <mxGeometry x="40" y="240" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="webmail" value="Web-based Email Clients" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF9A9A;strokeColor=#E4002B;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="comms-container" vertex="1">
+          <mxGeometry x="40" y="290" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cloud-container" value="Cloud/SaaS Applications" style="swimlane;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#424242;fontStyle=1;fontSize=14;fontFamily=Open Sans;startSize=30;" parent="1" vertex="1">
+          <mxGeometry x="340" y="80" width="280" height="340" as="geometry" />
+        </mxCell>
+        <mxCell id="sharepoint" value="Collaboration (SharePoint, Confluence, Miro)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#E4002B;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="cloud-container" vertex="1">
+          <mxGeometry x="40" y="40" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="saas-apps" value="Unsanctioned SaaS (Shadow IT)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF9A9A;strokeColor=#E4002B;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="cloud-container" vertex="1">
+          <mxGeometry x="40" y="90" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ai-tools" value="AI Tools (ChatGPT, Copilot)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF9A9A;strokeColor=#E4002B;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="cloud-container" vertex="1">
+          <mxGeometry x="40" y="140" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="note-apps" value="Note Apps (OneNote, Notion)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="cloud-container" vertex="1">
+          <mxGeometry x="40" y="190" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="pastebin" value="Pastebin/Code Sharing Sites" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF9A9A;strokeColor=#E4002B;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="cloud-container" vertex="1">
+          <mxGeometry x="40" y="240" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="dev-container" value="Developer/API" style="swimlane;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#424242;fontStyle=1;fontSize=14;fontFamily=Open Sans;startSize=30;" parent="1" vertex="1">
+          <mxGeometry x="950" y="80" width="280" height="340" as="geometry" />
+        </mxCell>
+        <mxCell id="git-repos" value="Git Repos (GitHub, GitLab)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#E4002B;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="dev-container" vertex="1">
+          <mxGeometry x="40" y="40" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="api-export" value="API Data Export" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="dev-container" vertex="1">
+          <mxGeometry x="40" y="90" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="database" value="Database Queries/Exports" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#E4002B;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="dev-container" vertex="1">
+          <mxGeometry x="40" y="140" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cicd" value="CI/CD Pipelines" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="dev-container" vertex="1">
+          <mxGeometry x="40" y="190" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="code-snippets" value="Code Snippets/Gists" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#E4002B;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="dev-container" vertex="1">
+          <mxGeometry x="40" y="240" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="container-registry" value="Container Registries" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="dev-container" vertex="1">
+          <mxGeometry x="40" y="290" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="mobile-container" value="Mobile Devices" style="swimlane;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#424242;fontStyle=1;fontSize=14;fontFamily=Open Sans;startSize=30;" parent="1" vertex="1">
+          <mxGeometry x="340" y="440" width="280" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="mobile-email" value="Mobile Email Apps" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#E4002B;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="mobile-container" vertex="1">
+          <mxGeometry x="40" y="40" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="mobile-camera" value="Mobile Camera/Screenshots" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF9A9A;strokeColor=#E4002B;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="mobile-container" vertex="1">
+          <mxGeometry x="40" y="90" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="mobile-apps" value="Mobile Apps (Unmanaged)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF9A9A;strokeColor=#E4002B;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="mobile-container" vertex="1">
+          <mxGeometry x="40" y="140" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="mobile-sync" value="Mobile Cloud Sync" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#E4002B;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="mobile-container" vertex="1">
+          <mxGeometry x="40" y="190" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-container" value="Risk Legend" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#424242;fontStyle=1;fontSize=12;fontFamily=Open Sans;startSize=25;" parent="1" vertex="1">
+          <mxGeometry x="970" y="610" width="280" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-critical" value="Critical Risk - No Control" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF9A9A;strokeColor=#E4002B;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="legend-container" vertex="1">
+          <mxGeometry x="40" y="35" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-high" value="High Risk - Limited Control" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#E4002B;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="legend-container" vertex="1">
+          <mxGeometry x="40" y="85" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-medium" value="Medium Risk - Partial Control" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=10;fontStyle=1;fontFamily=Open Sans;" parent="legend-container" vertex="1">
+          <mxGeometry x="40" y="135" width="200" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
