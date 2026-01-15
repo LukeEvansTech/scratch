@@ -1,0 +1,366 @@
+<mxfile host="app.diagrams.net" modified="2026-01-14T12:00:00.000Z" agent="draw.io" version="22.0.0">
+  <diagram name="Power BI Workflow" id="workflow">
+    <mxGraphModel dx="1434" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title -->
+        <mxCell id="title" value="Power BI Guest Access SNOW Request Workflow" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;fontFamily=Open Sans;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="400" y="20" width="500" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Swimlane 1 - User/Site Owner -->
+        <mxCell id="swimlane1" value="User/Requestor" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#424242;fontColor=#424242;fontStyle=1;fontSize=14;fontFamily=Open Sans;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="1500" height="150" as="geometry" />
+        </mxCell>
+
+        <!-- User/Site Owner shapes -->
+        <mxCell id="submit" value="Submit Power BI&lt;br&gt;Guest Access&lt;br&gt;SNOW Request &amp;&lt;br&gt;Approved by Manager" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=11;fontStyle=1;fontFamily=Open Sans;" vertex="1" parent="swimlane1">
+          <mxGeometry x="40" y="35" width="120" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="reviseForm" value="Revise Form?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=11;fontStyle=1;fontFamily=Open Sans;" vertex="1" parent="swimlane1">
+          <mxGeometry x="200" y="40" width="100" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="end1" value="End" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;fillColor=#F5F5F5;strokeColor=#424242;fontSize=11;fontStyle=1;fontFamily=Open Sans;" vertex="1" parent="swimlane1">
+          <mxGeometry x="380" y="55" width="80" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="completeMandatory" value="Complete Mandatory&lt;br&gt;Training" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=11;fontStyle=1;fontFamily=Open Sans;" vertex="1" parent="swimlane1">
+          <mxGeometry x="1050" y="45" width="130" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="passFail" value="Pass/Fail?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=11;fontStyle=1;fontFamily=Open Sans;" vertex="1" parent="swimlane1">
+          <mxGeometry x="1230" y="35" width="100" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Revise Form Y to Submit -->
+        <mxCell id="arrow_revise_y" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#E4002B;strokeWidth=2;exitX=0;exitY=0.5;entryX=1;entryY=0.5;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="swimlane1" source="reviseForm" target="submit">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="label_revise_y" value="Y" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#E4002B;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="swimlane1">
+          <mxGeometry x="175" y="75" as="geometry" />
+        </mxCell>
+
+        <!-- End to Revise Form -->
+        <mxCell id="arrow_end_revise" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#E4002B;strokeWidth=2;exitX=0;exitY=0.5;entryX=1;entryY=0.5;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="swimlane1" source="end1" target="reviseForm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Pass/Fail Y loop -->
+        <mxCell id="arrow_pass_y" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#424242;strokeWidth=2;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="swimlane1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1330" y="75" as="sourcePoint" />
+            <mxPoint x="1280" y="35" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1380" y="75" />
+              <mxPoint x="1380" y="10" />
+              <mxPoint x="1280" y="10" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="label_pass_y" value="Y" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#424242;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="swimlane1">
+          <mxGeometry x="1355" y="50" as="geometry" />
+        </mxCell>
+
+        <!-- Pass/Fail to Complete Mandatory Training (left arrow) -->
+        <mxCell id="arrow_passfail_complete" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#424242;strokeWidth=2;exitX=0;exitY=0.5;entryX=1;entryY=0.5;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="swimlane1" source="passFail" target="completeMandatory">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Swimlane 2 - Apps Team -->
+        <mxCell id="swimlane2" value="Apps Team" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#424242;fontColor=#424242;fontStyle=1;fontSize=14;fontFamily=Open Sans;" vertex="1" parent="1">
+          <mxGeometry x="40" y="210" width="1500" height="200" as="geometry" />
+        </mxCell>
+
+        <!-- Apps Team shapes -->
+        <mxCell id="reviewApprove" value="Review/Approve&lt;br&gt;Request?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=11;fontStyle=1;fontFamily=Open Sans;" vertex="1" parent="swimlane2">
+          <mxGeometry x="40" y="60" width="120" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="notifyDenial" value="Notify user of denial&lt;br&gt;e.g. Duplicate Name,&lt;br&gt;Form incomplete" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#E4002B;fontSize=11;fontStyle=1;fontFamily=Open Sans;" vertex="1" parent="swimlane2">
+          <mxGeometry x="200" y="15" width="140" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="doesCocoExist" value="Does CoCo Exist?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=11;fontStyle=1;fontFamily=Open Sans;" vertex="1" parent="swimlane2">
+          <mxGeometry x="480" y="10" width="120" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sendCoco3rd" value="Send Coco to 3rd&lt;br&gt;Party" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#E4002B;fontSize=11;fontStyle=1;fontFamily=Open Sans;" vertex="1" parent="swimlane2">
+          <mxGeometry x="660" y="20" width="110" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="thirdPartyGuest" value="3rd Party Guest&lt;br&gt;Access?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#E4002B;fontSize=11;fontStyle=1;fontFamily=Open Sans;" vertex="1" parent="swimlane2">
+          <mxGeometry x="480" y="110" width="120" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sendCompletedCoco" value="Send on completed&lt;br&gt;CoCo" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=11;fontStyle=1;fontFamily=Open Sans;" vertex="1" parent="swimlane2">
+          <mxGeometry x="660" y="120" width="130" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="provideMandatory" value="Provide Mandatory&lt;br&gt;Training" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=11;fontStyle=1;fontFamily=Open Sans;" vertex="1" parent="swimlane2">
+          <mxGeometry x="1050" y="70" width="130" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sendRequest" value="Send Request to&lt;br&gt;netcompanyserviced&lt;br&gt;esk@des.grplink.net" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=11;fontStyle=1;fontFamily=Open Sans;" vertex="1" parent="swimlane2">
+          <mxGeometry x="1230" y="65" width="140" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Review/Approve Denied to Notify -->
+        <mxCell id="arrow_denied" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#E4002B;strokeWidth=2;exitX=0.5;exitY=0;entryX=0;entryY=0.5;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="swimlane2" source="reviewApprove" target="notifyDenial">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="label_denied" value="Denied" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#E4002B;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="swimlane2">
+          <mxGeometry x="130" y="35" as="geometry" />
+        </mxCell>
+
+        <!-- Review/Approve Approved to Does CoCo Exist -->
+        <mxCell id="arrow_approved" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#424242;strokeWidth=2;exitX=0.5;exitY=1;entryX=0;entryY=0.5;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="swimlane2" source="reviewApprove" target="doesCocoExist">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="100" y="180" />
+              <mxPoint x="400" y="180" />
+              <mxPoint x="400" y="50" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="label_approved" value="Approved" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#424242;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="swimlane2">
+          <mxGeometry x="100" y="165" as="geometry" />
+        </mxCell>
+
+        <!-- Does CoCo Exist Y to Send Coco 3rd Party -->
+        <mxCell id="arrow_coco_y" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#424242;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="swimlane2" source="doesCocoExist" target="sendCoco3rd">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="label_coco_y" value="Y" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#424242;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="swimlane2">
+          <mxGeometry x="620" y="50" as="geometry" />
+        </mxCell>
+
+        <!-- Does CoCo Exist N to 3rd Party Guest Access -->
+        <mxCell id="arrow_coco_n" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#E4002B;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="swimlane2" source="doesCocoExist" target="thirdPartyGuest">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="label_coco_n" value="N" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#E4002B;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="swimlane2">
+          <mxGeometry x="555" y="100" as="geometry" />
+        </mxCell>
+
+        <!-- 3rd Party Guest Access Y to Send Completed CoCo -->
+        <mxCell id="arrow_3rd_y" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#424242;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="swimlane2" source="thirdPartyGuest" target="sendCompletedCoco">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="label_3rd_y" value="Y" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#424242;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="swimlane2">
+          <mxGeometry x="620" y="150" as="geometry" />
+        </mxCell>
+
+        <!-- 3rd Party Guest Access N loop -->
+        <mxCell id="arrow_3rd_n" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#E4002B;strokeWidth=2;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="swimlane2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="480" y="150" as="sourcePoint" />
+            <mxPoint x="540" y="190" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="430" y="150" />
+              <mxPoint x="430" y="190" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="label_3rd_n" value="N" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#E4002B;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="swimlane2">
+          <mxGeometry x="450" y="150" as="geometry" />
+        </mxCell>
+
+        <!-- Provide Mandatory Training to Send Request -->
+        <mxCell id="arrow_provide_send" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#424242;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="swimlane2" source="provideMandatory" target="sendRequest">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Swimlane 3 - InfoSec/Compliance -->
+        <mxCell id="swimlane3" value="InfoSec/Compliance" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#424242;fontColor=#424242;fontStyle=1;fontSize=14;fontFamily=Open Sans;" vertex="1" parent="1">
+          <mxGeometry x="40" y="410" width="1500" height="150" as="geometry" />
+        </mxCell>
+
+        <!-- InfoSec shapes -->
+        <mxCell id="infosecApprove" value="InfoSec Approve&lt;br&gt;TS Request" style="rhombus;whiteSpace=wrap;html=1;fillColor=#BDBDBD;strokeColor=#424242;fontSize=11;fontStyle=1;fontFamily=Open Sans;" vertex="1" parent="swimlane3">
+          <mxGeometry x="620" y="35" width="130" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="complianceApprove" value="Compliance&lt;br&gt;Approve TS&lt;br&gt;Request" style="rhombus;whiteSpace=wrap;html=1;fillColor=#BDBDBD;strokeColor=#424242;fontSize=11;fontStyle=1;fontFamily=Open Sans;" vertex="1" parent="swimlane3">
+          <mxGeometry x="820" y="30" width="120" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- InfoSec Y to Compliance -->
+        <mxCell id="arrow_infosec_y" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#424242;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="swimlane3" source="infosecApprove" target="complianceApprove">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="label_infosec_y" value="Y" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#424242;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="swimlane3">
+          <mxGeometry x="785" y="75" as="geometry" />
+        </mxCell>
+
+        <!-- InfoSec N loop -->
+        <mxCell id="arrow_infosec_n" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#E4002B;strokeWidth=2;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="swimlane3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="75" as="sourcePoint" />
+            <mxPoint x="685" y="115" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="570" y="75" />
+              <mxPoint x="570" y="130" />
+              <mxPoint x="685" y="130" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="label_infosec_n" value="N" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#E4002B;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="swimlane3">
+          <mxGeometry x="590" y="75" as="geometry" />
+        </mxCell>
+
+        <!-- Compliance N loop -->
+        <mxCell id="arrow_compliance_n" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#E4002B;strokeWidth=2;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="swimlane3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="880" y="120" as="sourcePoint" />
+            <mxPoint x="940" y="75" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="880" y="135" />
+              <mxPoint x="970" y="135" />
+              <mxPoint x="970" y="75" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="label_compliance_n" value="N" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#E4002B;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="swimlane3">
+          <mxGeometry x="880" y="130" as="geometry" />
+        </mxCell>
+
+        <!-- Swimlane 4 - Admin/NetCo -->
+        <mxCell id="swimlane4" value="Admin/NetCo" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#424242;fontColor=#424242;fontStyle=1;fontSize=14;fontFamily=Open Sans;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="1500" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- Admin shapes -->
+        <mxCell id="createSPOL" value="Grant Power BI&lt;br&gt;Guest Access &amp;&lt;br&gt;Notify User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=11;fontStyle=1;fontFamily=Open Sans;" vertex="1" parent="swimlane4">
+          <mxGeometry x="1000" y="40" width="130" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="monitorReport" value="Monitor/Report on&lt;br&gt;Guest Access&lt;br&gt;Weekly/Monthly/Yearly" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#424242;fontSize=11;fontStyle=1;fontFamily=Open Sans;" vertex="1" parent="swimlane4">
+          <mxGeometry x="1180" y="35" width="130" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="end2" value="End" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;fillColor=#F5F5F5;strokeColor=#424242;fontSize=11;fontStyle=1;fontFamily=Open Sans;" vertex="1" parent="swimlane4">
+          <mxGeometry x="1360" y="50" width="80" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Create SPOL to Monitor/Report -->
+        <mxCell id="arrow_create_monitor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#424242;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="swimlane4" source="createSPOL" target="monitorReport">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Monitor/Report to End -->
+        <mxCell id="arrow_monitor_end" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#424242;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="swimlane4" source="monitorReport" target="end2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== CROSS-LANE CONNECTORS ==================== -->
+
+        <!-- Submit down to Review/Approve -->
+        <mxCell id="cross_submit_review" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#424242;strokeWidth=2;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="140" y="175" as="sourcePoint" />
+            <mxPoint x="140" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Notify Denial up to End1 -->
+        <mxCell id="cross_notify_end" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#E4002B;strokeWidth=2;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="255" as="sourcePoint" />
+            <mxPoint x="420" y="115" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="380" y="195" />
+              <mxPoint x="420" y="195" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Send Coco 3rd Party to Provide Mandatory Training -->
+        <mxCell id="cross_coco_provide" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#424242;strokeWidth=2;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="810" y="260" as="sourcePoint" />
+            <mxPoint x="1090" y="310" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="950" y="260" />
+              <mxPoint x="950" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Pass/Fail N down to Provide Mandatory Training -->
+        <mxCell id="cross_passfail_provide" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#E4002B;strokeWidth=2;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1320" y="175" as="sourcePoint" />
+            <mxPoint x="1180" y="280" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1320" y="200" />
+              <mxPoint x="1180" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="label_passfail_n" value="N" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#E4002B;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="1330" y="185" as="geometry" />
+        </mxCell>
+
+        <!-- Provide Mandatory Training up to Complete Mandatory Training -->
+        <mxCell id="cross_provide_complete" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#424242;strokeWidth=2;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1155" y="280" as="sourcePoint" />
+            <mxPoint x="1155" y="165" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Send Completed CoCo down to InfoSec Approve -->
+        <mxCell id="cross_coco_infosec" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#424242;strokeWidth=2;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="765" y="390" as="sourcePoint" />
+            <mxPoint x="725" y="445" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Send Completed CoCo right to Provide Mandatory Training -->
+        <mxCell id="cross_completedcoco_provide" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#424242;strokeWidth=2;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="830" y="360" as="sourcePoint" />
+            <mxPoint x="1090" y="340" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="900" y="360" />
+              <mxPoint x="900" y="340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Compliance Approve Y down to Create SPOL -->
+        <mxCell id="cross_compliance_create" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#424242;strokeWidth=2;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="920" y="530" as="sourcePoint" />
+            <mxPoint x="1040" y="630" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="920" y="580" />
+              <mxPoint x="1040" y="580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="label_compliance_y" value="Y" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#424242;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="920" y="555" as="geometry" />
+        </mxCell>
+
+        <!-- Compliance Approve up to Provide Mandatory Training -->
+        <mxCell id="cross_compliance_provide" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#424242;strokeWidth=2;fontSize=10;fontFamily=Open Sans;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="940" y="485" as="sourcePoint" />
+            <mxPoint x="1090" y="340" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1010" y="485" />
+              <mxPoint x="1010" y="340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
